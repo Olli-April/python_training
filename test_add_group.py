@@ -16,7 +16,6 @@ class test_add_group(unittest.TestCase):
         self.wd.implicitly_wait(60)
 
     def test_add_group(self):
-        success = True
         wd = self.wd
         # open home page
         wd.get("http://localhost/addressbook/")
@@ -48,7 +47,7 @@ class test_add_group(unittest.TestCase):
         wd.find_element_by_link_text("group page").click()
         # logout
         wd.find_element_by_link_text("Logout").click()
-        self.assertTrue(success)
+        
 
     def tearDown(self):
         self.wd.quit()
