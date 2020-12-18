@@ -13,6 +13,12 @@ class ContactHelper:
         # init contact creation
         wd.find_element_by_link_text("add new").click()
         # fill contact form
+        self.fill_form_contact(contact, wd)
+        # submit group creation
+        wd.find_element_by_name("submit").click()
+        self.return_to_home_page()
+
+    def fill_form_contact(self, contact, wd):
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
         wd.find_element_by_name("firstname").send_keys(contact.name)
@@ -22,9 +28,6 @@ class ContactHelper:
         wd.find_element_by_name("address").click()
         wd.find_element_by_name("address").clear()
         wd.find_element_by_name("address").send_keys(contact.address)
-        # submit group creation
-        wd.find_element_by_name("submit").click()
-        self.retern_to_home_page()
 
     def delete_first_contact(self):
         wd = self.app.wd
@@ -39,21 +42,13 @@ class ContactHelper:
         # select edit
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
         # edit contact form
-        wd.find_element_by_name("firstname").click()
-        wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(contact.name)
-        wd.find_element_by_name("lastname").click()
-        wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(contact.last)
-        wd.find_element_by_name("address").click()
-        wd.find_element_by_name("address").clear()
-        wd.find_element_by_name("address").send_keys(contact.address)
+        self.fill_form_contact(contact, wd)
         # submit edition
         wd.find_element_by_name("update").click()
-        self.retern_to_home_page()
+        self.return_to_home_page()
 
 
 
-    def retern_to_home_page(self):
+    def return_to_home_page(self):
         wd = self.app.wd
         wd.find_element_by_link_text("home page").click()
