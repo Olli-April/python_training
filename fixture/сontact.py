@@ -32,7 +32,6 @@ class ContactHelper:
         self.change_field_value("lastname", contact.last)
         self.change_field_value("address", contact.address)
 
-
     def modify_first_contact(self, new_contact_data):
         wd = self.app.wd
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
