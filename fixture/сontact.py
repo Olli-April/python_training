@@ -1,4 +1,5 @@
 from model.contact import Contact
+import time
 
 class ContactHelper:
     def __init__(self, app):
@@ -35,6 +36,7 @@ class ContactHelper:
 
     def modify_first_contact(self, new_contact_data):
         wd = self.app.wd
+        self.return_to_home_page()
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
         # edit contact form
         self.fill_form_contact(new_contact_data)
@@ -43,38 +45,28 @@ class ContactHelper:
         self.return_to_home_page()
         self.contact_cache = None
 
-
-    def edit_first_contact(self, contact):
-        wd = self.app.wd
-        # select edit
-        wd.find_element_by_xpath("//img[@alt='Edit']").click()
-        # edit contact form
-        self.fill_form_contact(contact)
-        # submit edition
-        wd.find_element_by_name("update").click()
-        self.return_to_home_page()
-        self.contact_cache = None
-
-
     def delete_first_contact(self):
         wd = self.app.wd
-        # select first contact
-        wd.find_element_by_xpath("//input[@type='checkbox']").click()
-        # submit delection
+        self.return_to_home_page()
+        wd.find_element_by_name("selected[]").click()
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
+        wd.find_element_by_css_selector("div.msgbox")
         self.return_to_home_page()
         self.contact_cache = None
+        time.sleep(2)
+
 
     def return_to_home_page(self):
         wd = self.app.wd
-        if not wd.current_url.endswith("index.php"):
-            wd.find_element_by_link_text("home page").click()
+        if not (wd.current_url.endswith("/addressbook/") and len(
+                wd.find_elements_by_xpath("//input[@value='Send e-Mail']")) > 0):
+            wd.find_element_by_link_text("home").click()
+            time.sleep(2)
 
     def count(self):
         wd = self.app.wd
-        self.app.open_home_page()
-        #return len(wd.find_elements_by_xpath("//input[@type='checkbox']"))
+        self.return_to_home_page()
         return len(wd.find_elements_by_name("selected[]"))
 
     contact_cache = None
@@ -82,7 +74,7 @@ class ContactHelper:
     def get_contact_list(self):
         if self.contact_cache is None:
             wd = self.app.wd
-            self.app.open_home_page()
+            self.return_to_home_page()
             self.contact_cache = []
             for element in wd.find_elements_by_name("entry"):
                 cells = element.find_elements_by_tag_name("td")
