@@ -39,10 +39,23 @@ class ContactHelper:
         self.change_field_value("lastname", contact.last)
         self.change_field_value("address", contact.address)
 
-    def modify_first_contact(self, new_contact_data):
+    def select_first_contact(self):
+        wd = self.app.wd
+        wd.find_element_by_name("selected[]").click()
+
+
+    def select_contact_by_index(self, index):
+        wd = self.app.wd
+        wd.find_elements_by_name("selected[]")[index].click()
+
+    def open_contact_for_edit_by_index(self, index):
         wd = self.app.wd
         self.open_contact_page()
-        wd.find_element_by_xpath("//img[@alt='Edit']").click()
+        wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
+
+    def modify_contact_by_index(self, index, new_contact_data):
+        wd = self.app.wd
+        self.open_contact_for_edit_by_index(index)
         # edit contact form
         self.fill_form_contact(new_contact_data)
         # submit edition
@@ -50,15 +63,21 @@ class ContactHelper:
         self.return_to_home_page()
         self.contact_cache = None
 
-    def delete_first_contact(self):
+    def modify_first_contact(self):
+        self.modify_contact_by_index(0)
+
+    def delete_contact_by_index(self, index):
         wd = self.app.wd
         self.open_contact_page()
-        wd.find_element_by_name("selected[]").click()
+        self.select_contact_by_index(index)
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
         wd.find_elements_by_css_selector("div.msgbox")
         self.open_contact_page()
         self.contact_cache = None
+
+    def delete_first_contact(self):
+        self.delete_contact_by_index(0)
 
     def count(self):
         wd = self.app.wd
