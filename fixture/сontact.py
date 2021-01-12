@@ -1,5 +1,4 @@
 from model.contact import Contact
-import time
 
 class ContactHelper:
     def __init__(self, app):
@@ -36,7 +35,6 @@ class ContactHelper:
 
     def modify_first_contact(self, new_contact_data):
         wd = self.app.wd
-        self.return_to_home_page()
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
         # edit contact form
         self.fill_form_contact(new_contact_data)
@@ -47,22 +45,19 @@ class ContactHelper:
 
     def delete_first_contact(self):
         wd = self.app.wd
-        self.return_to_home_page()
         wd.find_element_by_name("selected[]").click()
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
-        wd.find_element_by_css_selector("div.msgbox")
+        wd.find_elements_by_css_selector("div.msgbox")
         self.return_to_home_page()
         self.contact_cache = None
-        time.sleep(2)
-
 
     def return_to_home_page(self):
         wd = self.app.wd
-        if not (wd.current_url.endswith("/addressbook/") and len(
-                wd.find_elements_by_xpath("//input[@value='Send e-Mail']")) > 0):
-            wd.find_element_by_link_text("home").click()
-            time.sleep(2)
+       # if not (wd.current_url.endswith("/addressbook/") and
+        #        len(wd.find_elements_by_xpath("//input[@value='Send e-Mail']")) > 0):
+        wd.find_element_by_link_text("home").click()
+
 
     def count(self):
         wd = self.app.wd
@@ -83,4 +78,3 @@ class ContactHelper:
                 firstname = cells[2].text
                 self.contact_cache.append(Contact(last=lastname, first_name=firstname, id=id))
             return list(self.contact_cache)
-
