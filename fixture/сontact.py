@@ -78,4 +78,4 @@ class ContactHelper:
                 lastname = cells[1].text
                 firstname = cells[2].text
                 self.contact_cache.append(Contact(last=lastname, first_name=firstname, id=id))
-            return list(self.contact_cache)
+        return list(self.contact_cache)
