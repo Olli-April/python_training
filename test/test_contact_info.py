@@ -3,6 +3,11 @@ from random import randrange
 import re
 
 def test_contact_info_vs_db(app, db):
+    if app.contact.count() == 0:
+        app.contact.create(Contact(firstname="test", middlename="test2", lastname="test3", homephone="12345678910",
+                                   mobilephone="12345678911", workphone="12345678912", address="adresstest",
+                                   secondaryphone="12345678913",
+                                   email="email1@gmail.com", email2="email2@gmail.com", email3="email3@gmail.com"))
     if len(db.get_contact_list()) == 0:
         app.contact.create(Contact(firstname="test", middlename="test2", lastname="test3", homephone="12345678910",
                                    mobilephone="12345678911", workphone="12345678912", address="adresstest",
@@ -27,6 +32,7 @@ def test_contact_info_home_vs_edit(app, db):
         assert contact_from_home_page.address == contact_from_edit_page.address
         assert contact_from_home_page.all_phones_from_home_page == merge_phones_like_home_page(contact_from_edit_page)
         assert contact_from_home_page.all_emails_from_home_page == merge_emails_like_home_page(contact_from_edit_page)
+
 
 def test_contact_info_home_vs_view(app, db):
     if len(db.get_contact_list()) == 0:

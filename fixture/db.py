@@ -38,3 +38,5 @@ class DbFixture:
         finally:
             cursor.close()
         return list
+
+    def get_groups_contact_list(self):
