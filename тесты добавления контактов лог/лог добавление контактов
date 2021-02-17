@@ -1,0 +1,303 @@
+/usr/local/bin/python3.8 "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --target test_add_contact.py::test_add_contact
+Testing started at 10:34 AM ...
+Launching pytest with arguments test_add_contact.py::test_add_contact in /Users/olgalonchuk/PycharmProjects/python_training/test
+
+============================= test session starts ==============================
+platform darwin -- Python 3.8.3, pytest-6.0.2, py-1.9.0, pluggy-0.13.1 -- /usr/local/bin/python3.8
+cachedir: .pytest_cache
+rootdir: /Users/olgalonchuk/PycharmProjects/python_training/test
+plugins: bdd-4.0.2
+collecting ... collected 6 items
+
+test_add_contact.py::test_add_contact[None::::None:] FAILED              [ 16%]
+test_add_contact.py:3 (test_add_contact[None::::None:])
+[350:firstnamegO1r= DWb p9s:lastname:None::7,
+ 351:firstname):lastnamen (&B7f _:None::7,
+ 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,
+ None::::None:] != [350:firstnamegO1r= DWb p9s:lastname:None::7,
+ 351:firstname):lastnamen (&B7f _:None::7,
+ 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+<Click to see difference>
+
+app = <fixture.application.Application object at 0x7f81ba452430>
+db = <fixture.db.DbFixture object at 0x7f81ba452460>
+json_contacts = None::::None:, check_ui = False
+
+    def test_add_contact(app, db, json_contacts, check_ui):
+        contact = json_contacts
+        old_contacts = db.get_contact_list()
+        app.contact.create(contact)
+        new_contacts = db.get_contact_list()
+        old_contacts.append(contact)
+>       assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+E       assert [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,\n None::::None:] == [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+test_add_contact.py:10: AssertionError
+FAILED [ 33%]
+test_add_contact.py:3 (test_add_contact[None:firstnamegO1r= DWb p9s:lastname:middlename-:None:7])
+[350:firstnamegO1r= DWb p9s:lastname:None::7,
+ 351:firstname):lastnamen (&B7f _:None::7,
+ 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,
+ None:firstnamegO1r= DWb p9s:lastname:middlename-:None:7] != [350:firstnamegO1r= DWb p9s:lastname:None::7,
+ 351:firstname):lastnamen (&B7f _:None::7,
+ 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+<Click to see difference>
+
+app = <fixture.application.Application object at 0x7f81ba452430>
+db = <fixture.db.DbFixture object at 0x7f81ba452460>
+json_contacts = None:firstnamegO1r= DWb p9s:lastname:middlename-:None:7
+check_ui = False
+
+    def test_add_contact(app, db, json_contacts, check_ui):
+        contact = json_contacts
+        old_contacts = db.get_contact_list()
+        app.contact.create(contact)
+        new_contacts = db.get_contact_list()
+        old_contacts.append(contact)
+>       assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+E       assert [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,\n None:firstnamegO1r= DWb p9s:lastname:middlename-:None:7] == [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+test_add_contact.py:10: AssertionError
+FAILED [ 50%]
+test_add_contact.py:3 (test_add_contact[None:firstname~'2XNKuC:lastname: ?pTp AMj :middlenamed lkju`w)M:None:7)>  )Bb )])
+[350:firstnamegO1r= DWb p9s:lastname:None::7,
+ 351:firstname):lastnamen (&B7f _:None::7,
+ 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,
+ None:firstname~'2XNKuC:lastname: ?pTp AMj :middlenamed lkju`w)M:None:7)>  )Bb )] != [350:firstnamegO1r= DWb p9s:lastname:None::7,
+ 351:firstname):lastnamen (&B7f _:None::7,
+ 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+<Click to see difference>
+
+app = <fixture.application.Application object at 0x7f81ba452430>
+db = <fixture.db.DbFixture object at 0x7f81ba452460>
+json_contacts = None:firstname~'2XNKuC:lastname: ?pTp AMj :middlenamed lkju`w)M:None:7)>  )Bb )
+check_ui = False
+
+    def test_add_contact(app, db, json_contacts, check_ui):
+        contact = json_contacts
+        old_contacts = db.get_contact_list()
+        app.contact.create(contact)
+        new_contacts = db.get_contact_list()
+        old_contacts.append(contact)
+>       assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+E       AssertionError: assert [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,\n None:firstname~'2XNKuC:lastname: ?pTp AMj :middlenamed lkju`w)M:None:7)>  )Bb )] == [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+test_add_contact.py:10: AssertionError
+FAILED [ 66%]
+test_add_contact.py:3 (test_add_contact[None:firstname):lastnamen (&B7f _:middlename/x]jS:None:7])
+[350:firstnamegO1r= DWb p9s:lastname:None::7,
+ 351:firstname):lastnamen (&B7f _:None::7,
+ 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,
+ None:firstname):lastnamen (&B7f _:middlename/x]jS:None:7] != [350:firstnamegO1r= DWb p9s:lastname:None::7,
+ 351:firstname):lastnamen (&B7f _:None::7,
+ 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+<Click to see difference>
+
+app = <fixture.application.Application object at 0x7f81ba452430>
+db = <fixture.db.DbFixture object at 0x7f81ba452460>
+json_contacts = None:firstname):lastnamen (&B7f _:middlename/x]jS:None:7
+check_ui = False
+
+    def test_add_contact(app, db, json_contacts, check_ui):
+        contact = json_contacts
+        old_contacts = db.get_contact_list()
+        app.contact.create(contact)
+        new_contacts = db.get_contact_list()
+        old_contacts.append(contact)
+>       assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+E       assert [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,\n None:firstname):lastnamen (&B7f _:middlename/x]jS:None:7] == [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+test_add_contact.py:10: AssertionError
+FAILED [ 83%]
+test_add_contact.py:3 (test_add_contact[None:firstnamen8Y" PP*4/U'!\\:lastname}"2(4?0F$'` :middlename^Yd_<Fx3?]4_ov:None:7C&tV/ m])
+[350:firstnamegO1r= DWb p9s:lastname:None::7,
+ 351:firstname):lastnamen (&B7f _:None::7,
+ 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,
+ None:firstnamen8Y" PP*4/U'!\:lastname}"2(4?0F$'` :middlename^Yd_<Fx3?]4_ov:None:7C&tV/ m] != [350:firstnamegO1r= DWb p9s:lastname:None::7,
+ 351:firstname):lastnamen (&B7f _:None::7,
+ 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+<Click to see difference>
+
+app = <fixture.application.Application object at 0x7f81ba452430>
+db = <fixture.db.DbFixture object at 0x7f81ba452460>
+json_contacts = None:firstnamen8Y" PP*4/U'!\:lastname}"2(4?0F$'` :middlename^Yd_<Fx3?]4_ov:None:7C&tV/ m
+check_ui = False
+
+    def test_add_contact(app, db, json_contacts, check_ui):
+        contact = json_contacts
+        old_contacts = db.get_contact_list()
+        app.contact.create(contact)
+        new_contacts = db.get_contact_list()
+        old_contacts.append(contact)
+>       assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+E       assert [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,\n None:firstnamen8Y" PP*4/U'!\:lastname}"2(4?0F$'` :middlename^Yd_<Fx3?]4_ov:None:7C&tV/ m] == [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+test_add_contact.py:10: AssertionError
+FAILED [100%]
+test_add_contact.py:3 (test_add_contact[None:firstnameQP @8#5cS&[*:lastname:middlename`jF Z1 <}U:None:7 bZl6+ (r])
+[350:firstnamegO1r= DWb p9s:lastname:None::7,
+ 351:firstname):lastnamen (&B7f _:None::7,
+ 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,
+ None:firstnameQP @8#5cS&[*:lastname:middlename`jF Z1 <}U:None:7 bZl6+ (r] != [350:firstnamegO1r= DWb p9s:lastname:None::7,
+ 351:firstname):lastnamen (&B7f _:None::7,
+ 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+<Click to see difference>
+
+app = <fixture.application.Application object at 0x7f81ba452430>
+db = <fixture.db.DbFixture object at 0x7f81ba452460>
+json_contacts = None:firstnameQP @8#5cS&[*:lastname:middlename`jF Z1 <}U:None:7 bZl6+ (r
+check_ui = False
+
+    def test_add_contact(app, db, json_contacts, check_ui):
+        contact = json_contacts
+        old_contacts = db.get_contact_list()
+        app.contact.create(contact)
+        new_contacts = db.get_contact_list()
+        old_contacts.append(contact)
+>       assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+E       assert [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,\n None:firstnameQP @8#5cS&[*:lastname:middlename`jF Z1 <}U:None:7 bZl6+ (r] == [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+test_add_contact.py:10: AssertionError
+
+
+
+
+
+
+
+Assertion failed
+
+test_add_contact.py::test_add_contact[None:firstnamegO1r= DWb p9s:lastname:middlename-:None:7]
+test_add_contact.py::test_add_contact[None:firstname~'2XNKuC:lastname: ?pTp AMj :middlenamed lkju`w)M:None:7)>  )Bb )]
+test_add_contact.py::test_add_contact[None:firstname):lastnamen (&B7f _:middlename/x]jS:None:7]
+test_add_contact.py::test_add_contact[None:firstnamen8Y" PP*4/U'!\\:lastname}"2(4?0F$'` :middlename^Yd_<Fx3?]4_ov:None:7C&tV/ m]
+test_add_contact.py::test_add_contact[None:firstnameQP @8#5cS&[*:lastname:middlename`jF Z1 <}U:None:7 bZl6+ (r]
+
+=================================== FAILURES ===================================
+_______________________ test_add_contact[None::::None:] ________________________
+
+app = <fixture.application.Application object at 0x7f81ba452430>
+db = <fixture.db.DbFixture object at 0x7f81ba452460>
+json_contacts = None::::None:, check_ui = False
+
+    def test_add_contact(app, db, json_contacts, check_ui):
+        contact = json_contacts
+        old_contacts = db.get_contact_list()
+        app.contact.create(contact)
+        new_contacts = db.get_contact_list()
+        old_contacts.append(contact)
+>       assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+E       assert [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,\n None::::None:] == [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+test_add_contact.py:10: AssertionError
+__ test_add_contact[None:firstnamegO1r= DWb p9s:lastname:middlename-:None:7] ___
+
+app = <fixture.application.Application object at 0x7f81ba452430>
+db = <fixture.db.DbFixture object at 0x7f81ba452460>
+json_contacts = None:firstnamegO1r= DWb p9s:lastname:middlename-:None:7
+check_ui = False
+
+    def test_add_contact(app, db, json_contacts, check_ui):
+        contact = json_contacts
+        old_contacts = db.get_contact_list()
+        app.contact.create(contact)
+        new_contacts = db.get_contact_list()
+        old_contacts.append(contact)
+>       assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+E       assert [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,\n None:firstnamegO1r= DWb p9s:lastname:middlename-:None:7] == [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+test_add_contact.py:10: AssertionError
+_ test_add_contact[None:firstname~'2XNKuC:lastname: ?pTp AMj :middlenamed lkju`w)M:None:7)>  )Bb )] _
+
+app = <fixture.application.Application object at 0x7f81ba452430>
+db = <fixture.db.DbFixture object at 0x7f81ba452460>
+json_contacts = None:firstname~'2XNKuC:lastname: ?pTp AMj :middlenamed lkju`w)M:None:7)>  )Bb )
+check_ui = False
+
+    def test_add_contact(app, db, json_contacts, check_ui):
+        contact = json_contacts
+        old_contacts = db.get_contact_list()
+        app.contact.create(contact)
+        new_contacts = db.get_contact_list()
+        old_contacts.append(contact)
+>       assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+E       AssertionError: assert [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,\n None:firstname~'2XNKuC:lastname: ?pTp AMj :middlenamed lkju`w)M:None:7)>  )Bb )] == [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+test_add_contact.py:10: AssertionError
+__ test_add_contact[None:firstname):lastnamen (&B7f _:middlename/x]jS:None:7] __
+
+app = <fixture.application.Application object at 0x7f81ba452430>
+db = <fixture.db.DbFixture object at 0x7f81ba452460>
+json_contacts = None:firstname):lastnamen (&B7f _:middlename/x]jS:None:7
+check_ui = False
+
+    def test_add_contact(app, db, json_contacts, check_ui):
+        contact = json_contacts
+        old_contacts = db.get_contact_list()
+        app.contact.create(contact)
+        new_contacts = db.get_contact_list()
+        old_contacts.append(contact)
+>       assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+E       assert [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,\n None:firstname):lastnamen (&B7f _:middlename/x]jS:None:7] == [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+test_add_contact.py:10: AssertionError
+_ test_add_contact[None:firstnamen8Y" PP*4/U'!\\:lastname}"2(4?0F$'` :middlename^Yd_<Fx3?]4_ov:None:7C&tV/ m] _
+
+app = <fixture.application.Application object at 0x7f81ba452430>
+db = <fixture.db.DbFixture object at 0x7f81ba452460>
+json_contacts = None:firstnamen8Y" PP*4/U'!\:lastname}"2(4?0F$'` :middlename^Yd_<Fx3?]4_ov:None:7C&tV/ m
+check_ui = False
+
+    def test_add_contact(app, db, json_contacts, check_ui):
+        contact = json_contacts
+        old_contacts = db.get_contact_list()
+        app.contact.create(contact)
+        new_contacts = db.get_contact_list()
+        old_contacts.append(contact)
+>       assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+E       assert [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,\n None:firstnamen8Y" PP*4/U'!\:lastname}"2(4?0F$'` :middlename^Yd_<Fx3?]4_ov:None:7C&tV/ m] == [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+test_add_contact.py:10: AssertionError
+_ test_add_contact[None:firstnameQP @8#5cS&[*:lastname:middlename`jF Z1 <}U:None:7 bZl6+ (r] _
+
+app = <fixture.application.Application object at 0x7f81ba452430>
+db = <fixture.db.DbFixture object at 0x7f81ba452460>
+json_contacts = None:firstnameQP @8#5cS&[*:lastname:middlename`jF Z1 <}U:None:7 bZl6+ (r
+check_ui = False
+
+    def test_add_contact(app, db, json_contacts, check_ui):
+        contact = json_contacts
+        old_contacts = db.get_contact_list()
+        app.contact.create(contact)
+        new_contacts = db.get_contact_list()
+        old_contacts.append(contact)
+>       assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+E       assert [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r,\n None:firstnameQP @8#5cS&[*:lastname:middlename`jF Z1 <}U:None:7 bZl6+ (r] == [350:firstnamegO1r= DWb p9s:lastname:None::7,\n 351:firstname):lastnamen (&B7f _:None::7,\n 352:firstnameQP @8#5cS&[*:lastname:None::7 bZl6+ (r]
+
+test_add_contact.py:10: AssertionError
+=========================== short test summary info ============================
+FAILED test_add_contact.py::test_add_contact[None::::None:] - assert [350:fir...
+FAILED test_add_contact.py::test_add_contact[None:firstnamegO1r= DWb p9s:lastname:middlename-:None:7]
+FAILED test_add_contact.py::test_add_contact[None:firstname~'2XNKuC:lastname: ?pTp AMj :middlenamed lkju`w)M:None:7)>  )Bb )]
+FAILED test_add_contact.py::test_add_contact[None:firstname):lastnamen (&B7f _:middlename/x]jS:None:7]
+FAILED test_add_contact.py::test_add_contact[None:firstnamen8Y" PP*4/U'!\\:lastname}"2(4?0F$'` :middlename^Yd_<Fx3?]4_ov:None:7C&tV/ m]
+FAILED test_add_contact.py::test_add_contact[None:firstnameQP @8#5cS&[*:lastname:middlename`jF Z1 <}U:None:7 bZl6+ (r]
+============================== 6 failed in 33.75s ==============================
+
+Process finished with exit code 1
+
+
+
+
+
+
+
+Assertion failed
+
+Assertion failed

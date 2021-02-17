@@ -1,0 +1,283 @@
+/usr/local/bin/python3.8 "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pycharm/_jb_pytest_runner.py" --path /Users/olgalonchuk/PycharmProjects/python_training/test/test_add_group.py
+Testing started at 10:20 AM ...
+Launching pytest with arguments /Users/olgalonchuk/PycharmProjects/python_training/test/test_add_group.py in /Users/olgalonchuk/PycharmProjects/python_training/test
+
+============================= test session starts ==============================
+platform darwin -- Python 3.8.3, pytest-6.0.2, py-1.9.0, pluggy-0.13.1 -- /usr/local/bin/python3.8
+cachedir: .pytest_cache
+rootdir: /Users/olgalonchuk/PycharmProjects/python_training/test
+plugins: bdd-4.0.2
+collecting ... collected 6 items
+
+test_add_group.py::test_add_group[None:::] FAILED                        [ 16%]
+test_add_group.py:3 (test_add_group[None:::])
+[None:::] != []
+
+Expected :[]
+Actual   :[None:::]
+<Click to see difference>
+
+app = <fixture.application.Application object at 0x7feec2b52b50>
+db = <fixture.db.DbFixture object at 0x7feec2b52a60>, json_groups = None:::
+check_ui = False
+
+    def test_add_group(app, db, json_groups, check_ui):
+        group = json_groups
+        old_groups = db.get_group_list()
+        app.group.create(group)
+        new_groups = db.get_group_list()
+        old_groups.append(group)
+>       assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+E       assert [None:::] == []
+
+test_add_group.py:10: AssertionError
+FAILED [ 33%]
+test_add_group.py:3 (test_add_group[None:name)b-2v  :header :footerd0kTk<z*zc:?z) -i])
+[None:name)b-2v  :header :footerd0kTk<z*zc:?z) -i] != []
+
+Expected :[]
+Actual   :[None:name)b-2v  :header :footerd0kTk<z*zc:?z) -i]
+<Click to see difference>
+
+app = <fixture.application.Application object at 0x7feec2b52b50>
+db = <fixture.db.DbFixture object at 0x7feec2b52a60>
+json_groups = None:name)b-2v  :header :footerd0kTk<z*zc:?z) -i, check_ui = False
+
+    def test_add_group(app, db, json_groups, check_ui):
+        group = json_groups
+        old_groups = db.get_group_list()
+        app.group.create(group)
+        new_groups = db.get_group_list()
+        old_groups.append(group)
+>       assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+E       assert [None:name)b-2v  :header :footerd0kTk<z*zc:?z) -i] == []
+
+test_add_group.py:10: AssertionError
+FAILED [ 50%]
+test_add_group.py:3 (test_add_group[None:name8TU`[:headerw"e:(Wi0., ,I:footer>zx5tb> dc}l])
+[None:name8TU`[:headerw"e:(Wi0., ,I:footer>zx5tb> dc}l] != []
+
+Expected :[]
+Actual   :[None:name8TU`[:headerw"e:(Wi0., ,I:footer>zx5tb> dc}l]
+<Click to see difference>
+
+app = <fixture.application.Application object at 0x7feec2b52b50>
+db = <fixture.db.DbFixture object at 0x7feec2b52a60>
+json_groups = None:name8TU`[:headerw"e:(Wi0., ,I:footer>zx5tb> dc}l
+check_ui = False
+
+    def test_add_group(app, db, json_groups, check_ui):
+        group = json_groups
+        old_groups = db.get_group_list()
+        app.group.create(group)
+        new_groups = db.get_group_list()
+        old_groups.append(group)
+>       assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+E       assert [None:name8TU`[:headerw"e:(Wi0., ,I:footer>zx5tb> dc}l] == []
+
+test_add_group.py:10: AssertionError
+FAILED [ 66%]
+test_add_group.py:3 (test_add_group[None:namexw;7]xJ0:header.Yx)B:footer6;3* !mZ JX{ ])
+[None:namexw;7]xJ0:header.Yx)B:footer6;3* !mZ JX{ ] != []
+
+Expected :[]
+Actual   :[None:namexw;7]xJ0:header.Yx)B:footer6;3* !mZ JX{ ]
+<Click to see difference>
+
+app = <fixture.application.Application object at 0x7feec2b52b50>
+db = <fixture.db.DbFixture object at 0x7feec2b52a60>
+json_groups = None:namexw;7]xJ0:header.Yx)B:footer6;3* !mZ JX{
+check_ui = False
+
+    def test_add_group(app, db, json_groups, check_ui):
+        group = json_groups
+        old_groups = db.get_group_list()
+        app.group.create(group)
+        new_groups = db.get_group_list()
+        old_groups.append(group)
+>       assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+E       assert [None:namexw;7]xJ0:header.Yx)B:footer6;3* !mZ JX{ ] == []
+
+test_add_group.py:10: AssertionError
+FAILED [ 83%]
+test_add_group.py:3 (test_add_group[None:nameJE:header1(#S\\jYO:footer,XToB B' ^'-`QEQ<7])
+[None:nameJE:header1(#S\jYO:footer,XToB B' ^'-`QEQ<7] != []
+
+Expected :[]
+Actual   :[None:nameJE:header1(#S\jYO:footer,XToB B' ^'-`QEQ<7]
+<Click to see difference>
+
+app = <fixture.application.Application object at 0x7feec2b52b50>
+db = <fixture.db.DbFixture object at 0x7feec2b52a60>
+json_groups = None:nameJE:header1(#S\jYO:footer,XToB B' ^'-`QEQ<7
+check_ui = False
+
+    def test_add_group(app, db, json_groups, check_ui):
+        group = json_groups
+        old_groups = db.get_group_list()
+        app.group.create(group)
+        new_groups = db.get_group_list()
+        old_groups.append(group)
+>       assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+E       AssertionError: assert [None:nameJE:header1(#S\jYO:footer,XToB B' ^'-`QEQ<7] == []
+
+test_add_group.py:10: AssertionError
+FAILED [100%]
+test_add_group.py:3 (test_add_group[None:name[KJ||$4R+:headerB RYY4:footer `pu`i3:n)~?r8 e: ])
+[None:name[KJ||$4R+:headerB RYY4:footer `pu`i3:n)~?r8 e: ] != []
+
+Expected :[]
+Actual   :[None:name[KJ||$4R+:headerB RYY4:footer `pu`i3:n)~?r8 e: ]
+<Click to see difference>
+
+app = <fixture.application.Application object at 0x7feec2b52b50>
+db = <fixture.db.DbFixture object at 0x7feec2b52a60>
+json_groups = None:name[KJ||$4R+:headerB RYY4:footer `pu`i3:n)~?r8 e:
+check_ui = False
+
+    def test_add_group(app, db, json_groups, check_ui):
+        group = json_groups
+        old_groups = db.get_group_list()
+        app.group.create(group)
+        new_groups = db.get_group_list()
+        old_groups.append(group)
+>       assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+E       assert [None:name[KJ||$4R+:headerB RYY4:footer `pu`i3:n)~?r8 e: ] == []
+
+test_add_group.py:10: AssertionError
+
+
+
+
+
+
+
+Assertion failed
+
+test_add_group.py::test_add_group[None:name)b-2v  :header :footerd0kTk<z*zc:?z) -i]
+test_add_group.py::test_add_group[None:name8TU`[:headerw"e:(Wi0., ,I:footer>zx5tb> dc}l]
+test_add_group.py::test_add_group[None:namexw;7]xJ0:header.Yx)B:footer6;3* !mZ JX{ ]
+test_add_group.py::test_add_group[None:nameJE:header1(#S\\jYO:footer,XToB B' ^'-`QEQ<7]
+test_add_group.py::test_add_group[None:name[KJ||$4R+:headerB RYY4:footer `pu`i3:n)~?r8 e: ]
+
+=================================== FAILURES ===================================
+___________________________ test_add_group[None:::] ____________________________
+
+app = <fixture.application.Application object at 0x7feec2b52b50>
+db = <fixture.db.DbFixture object at 0x7feec2b52a60>, json_groups = None:::
+check_ui = False
+
+    def test_add_group(app, db, json_groups, check_ui):
+        group = json_groups
+        old_groups = db.get_group_list()
+        app.group.create(group)
+        new_groups = db.get_group_list()
+        old_groups.append(group)
+>       assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+E       assert [None:::] == []
+
+test_add_group.py:10: AssertionError
+_______ test_add_group[None:name)b-2v  :header :footerd0kTk<z*zc:?z) -i] _______
+
+app = <fixture.application.Application object at 0x7feec2b52b50>
+db = <fixture.db.DbFixture object at 0x7feec2b52a60>
+json_groups = None:name)b-2v  :header :footerd0kTk<z*zc:?z) -i, check_ui = False
+
+    def test_add_group(app, db, json_groups, check_ui):
+        group = json_groups
+        old_groups = db.get_group_list()
+        app.group.create(group)
+        new_groups = db.get_group_list()
+        old_groups.append(group)
+>       assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+E       assert [None:name)b-2v  :header :footerd0kTk<z*zc:?z) -i] == []
+
+test_add_group.py:10: AssertionError
+____ test_add_group[None:name8TU`[:headerw"e:(Wi0., ,I:footer>zx5tb> dc}l] _____
+
+app = <fixture.application.Application object at 0x7feec2b52b50>
+db = <fixture.db.DbFixture object at 0x7feec2b52a60>
+json_groups = None:name8TU`[:headerw"e:(Wi0., ,I:footer>zx5tb> dc}l
+check_ui = False
+
+    def test_add_group(app, db, json_groups, check_ui):
+        group = json_groups
+        old_groups = db.get_group_list()
+        app.group.create(group)
+        new_groups = db.get_group_list()
+        old_groups.append(group)
+>       assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+E       assert [None:name8TU`[:headerw"e:(Wi0., ,I:footer>zx5tb> dc}l] == []
+
+test_add_group.py:10: AssertionError
+______ test_add_group[None:namexw;7]xJ0:header.Yx)B:footer6;3* !mZ JX{ ] _______
+
+app = <fixture.application.Application object at 0x7feec2b52b50>
+db = <fixture.db.DbFixture object at 0x7feec2b52a60>
+json_groups = None:namexw;7]xJ0:header.Yx)B:footer6;3* !mZ JX{
+check_ui = False
+
+    def test_add_group(app, db, json_groups, check_ui):
+        group = json_groups
+        old_groups = db.get_group_list()
+        app.group.create(group)
+        new_groups = db.get_group_list()
+        old_groups.append(group)
+>       assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+E       assert [None:namexw;7]xJ0:header.Yx)B:footer6;3* !mZ JX{ ] == []
+
+test_add_group.py:10: AssertionError
+_____ test_add_group[None:nameJE:header1(#S\\jYO:footer,XToB B' ^'-`QEQ<7] _____
+
+app = <fixture.application.Application object at 0x7feec2b52b50>
+db = <fixture.db.DbFixture object at 0x7feec2b52a60>
+json_groups = None:nameJE:header1(#S\jYO:footer,XToB B' ^'-`QEQ<7
+check_ui = False
+
+    def test_add_group(app, db, json_groups, check_ui):
+        group = json_groups
+        old_groups = db.get_group_list()
+        app.group.create(group)
+        new_groups = db.get_group_list()
+        old_groups.append(group)
+>       assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+E       AssertionError: assert [None:nameJE:header1(#S\jYO:footer,XToB B' ^'-`QEQ<7] == []
+
+test_add_group.py:10: AssertionError
+___ test_add_group[None:name[KJ||$4R+:headerB RYY4:footer `pu`i3:n)~?r8 e: ] ___
+
+app = <fixture.application.Application object at 0x7feec2b52b50>
+db = <fixture.db.DbFixture object at 0x7feec2b52a60>
+json_groups = None:name[KJ||$4R+:headerB RYY4:footer `pu`i3:n)~?r8 e:
+check_ui = False
+
+    def test_add_group(app, db, json_groups, check_ui):
+        group = json_groups
+        old_groups = db.get_group_list()
+        app.group.create(group)
+        new_groups = db.get_group_list()
+        old_groups.append(group)
+>       assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+E       assert [None:name[KJ||$4R+:headerB RYY4:footer `pu`i3:n)~?r8 e: ] == []
+
+test_add_group.py:10: AssertionError
+=========================== short test summary info ============================
+FAILED test_add_group.py::test_add_group[None:::] - assert [None:::] == []
+FAILED test_add_group.py::test_add_group[None:name)b-2v  :header :footerd0kTk<z*zc:?z) -i]
+FAILED test_add_group.py::test_add_group[None:name8TU`[:headerw"e:(Wi0., ,I:footer>zx5tb> dc}l]
+FAILED test_add_group.py::test_add_group[None:namexw;7]xJ0:header.Yx)B:footer6;3* !mZ JX{ ]
+FAILED test_add_group.py::test_add_group[None:nameJE:header1(#S\\jYO:footer,XToB B' ^'-`QEQ<7]
+FAILED test_add_group.py::test_add_group[None:name[KJ||$4R+:headerB RYY4:footer `pu`i3:n)~?r8 e: ]
+============================== 6 failed in 57.81s ==============================
+
+Process finished with exit code 1
+
+
+
+
+
+
+
+Assertion failed
+
+Assertion failed
