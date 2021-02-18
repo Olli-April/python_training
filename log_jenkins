@@ -1,0 +1,86 @@
+Started by user admin
+Running as SYSTEM
+Building in workspace /Users/olgalonchuk/.jenkins/workspace/addressbook
+The recommended git tool is: NONE
+No credentials specified
+ > /usr/local/bin/git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > /usr/local/bin/git config remote.origin.url https://github.com/Olli-April/python_training # timeout=10
+Fetching upstream changes from https://github.com/Olli-April/python_training
+ > /usr/local/bin/git --version # timeout=10
+ > git --version # 'git version 2.23.0'
+ > /usr/local/bin/git fetch --tags --force --progress -- https://github.com/Olli-April/python_training +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/local/bin/git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision d70f77e617985e6ae74654aebdbf1e3204792756 (refs/remotes/origin/main)
+ > /usr/local/bin/git config core.sparsecheckout # timeout=10
+ > /usr/local/bin/git checkout -f d70f77e617985e6ae74654aebdbf1e3204792756 # timeout=10
+Commit message: "исправлен test modif"
+ > /usr/local/bin/git rev-list --no-walk d70f77e617985e6ae74654aebdbf1e3204792756 # timeout=10
+[addressbook] $ /bin/sh -xe /var/folders/ts/gtbsl5s90kl7gktvwr0ygkh80000gn/T/jenkins903149135119126000.sh
++ python3 -m virtualenv local
+created virtual environment CPython3.8.3.final.0-64 in 1457ms
+  creator CPython3Posix(dest=/Users/olgalonchuk/.jenkins/workspace/addressbook/local, clear=False, no_vcs_ignore=False, global=False)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/Users/olgalonchuk/Library/Application Support/virtualenv)
+    added seed packages: Mako==1.1.4, MarkupSafe==1.1.1, PyMySQL==1.0.2, attrs==20.3.0, glob2==0.7, iniconfig==1.1.1, jsonpickle==2.0.0, mysql_connector_python_rf==2.2.2, packaging==20.9, parse==1.19.0, parse_type==0.5.2, pip==20.3.1, pluggy==0.13.1, pony==0.7.14, py==1.10.0, pyparsing==2.4.7, pytest==6.2.2, pytest_bdd==4.0.2, selenium==3.141.0, setuptools==51.0.0, six==1.15.0, toml==0.10.2, urllib3==1.26.3, wheel==0.36.1
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
++ source ./local/bin/activate
+++ '[' ./local/bin/activate = /var/folders/ts/gtbsl5s90kl7gktvwr0ygkh80000gn/T/jenkins903149135119126000.sh ']'
+++ deactivate nondestructive
+++ unset -f pydoc
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ '[' -n /bin/sh ']'
+++ hash -r
+++ '[' -z '' ']'
+++ unset VIRTUAL_ENV
+++ '[' '!' nondestructive = nondestructive ']'
+++ VIRTUAL_ENV=/Users/olgalonchuk/.jenkins/workspace/addressbook/local
+++ '[' darwin20 = cygwin ']'
+++ '[' darwin20 = msys ']'
+++ export VIRTUAL_ENV
+++ _OLD_VIRTUAL_PATH=/Library/Frameworks/Python.framework/Versions/3.8/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+++ PATH=/Users/olgalonchuk/.jenkins/workspace/addressbook/local/bin:/Library/Frameworks/Python.framework/Versions/3.8/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+++ export PATH
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ '[' x '!=' x ']'
++++ basename /Users/olgalonchuk/.jenkins/workspace/addressbook/local
+++ PS1='(local) '
+++ export PS1
+++ alias pydoc
+++ true
+++ '[' -n /bin/sh ']'
+++ hash -r
++ pip install --upgrade --requirement requirements.txt
+Requirement already satisfied: pytest in ./local/lib/python3.8/site-packages (from -r requirements.txt (line 1)) (6.2.2)
+Requirement already satisfied: pytest_bdd in ./local/lib/python3.8/site-packages (from -r requirements.txt (line 2)) (4.0.2)
+Requirement already satisfied: selenium in ./local/lib/python3.8/site-packages (from -r requirements.txt (line 3)) (3.141.0)
+Requirement already satisfied: jsonpickle in ./local/lib/python3.8/site-packages (from -r requirements.txt (line 4)) (2.0.0)
+Requirement already satisfied: pony in ./local/lib/python3.8/site-packages (from -r requirements.txt (line 5)) (0.7.14)
+Requirement already satisfied: pymysql in ./local/lib/python3.8/site-packages (from -r requirements.txt (line 6)) (1.0.2)
+Requirement already satisfied: mysql-connector-python-rf in ./local/lib/python3.8/site-packages (from -r requirements.txt (line 7)) (2.2.2)
+Requirement already satisfied: toml in ./local/lib/python3.8/site-packages (from pytest->-r requirements.txt (line 1)) (0.10.2)
+Requirement already satisfied: packaging in ./local/lib/python3.8/site-packages (from pytest->-r requirements.txt (line 1)) (20.9)
+Requirement already satisfied: attrs>=19.2.0 in ./local/lib/python3.8/site-packages (from pytest->-r requirements.txt (line 1)) (20.3.0)
+Requirement already satisfied: pluggy<1.0.0a1,>=0.12 in ./local/lib/python3.8/site-packages (from pytest->-r requirements.txt (line 1)) (0.13.1)
+Requirement already satisfied: py>=1.8.2 in ./local/lib/python3.8/site-packages (from pytest->-r requirements.txt (line 1)) (1.10.0)
+Requirement already satisfied: iniconfig in ./local/lib/python3.8/site-packages (from pytest->-r requirements.txt (line 1)) (1.1.1)
+Requirement already satisfied: six>=1.9.0 in ./local/lib/python3.8/site-packages (from pytest_bdd->-r requirements.txt (line 2)) (1.15.0)
+Requirement already satisfied: parse-type in ./local/lib/python3.8/site-packages (from pytest_bdd->-r requirements.txt (line 2)) (0.5.2)
+Requirement already satisfied: parse in ./local/lib/python3.8/site-packages (from pytest_bdd->-r requirements.txt (line 2)) (1.19.0)
+Requirement already satisfied: glob2 in ./local/lib/python3.8/site-packages (from pytest_bdd->-r requirements.txt (line 2)) (0.7)
+Requirement already satisfied: py>=1.8.2 in ./local/lib/python3.8/site-packages (from pytest->-r requirements.txt (line 1)) (1.10.0)
+Requirement already satisfied: Mako in ./local/lib/python3.8/site-packages (from pytest_bdd->-r requirements.txt (line 2)) (1.1.4)
+Requirement already satisfied: pytest in ./local/lib/python3.8/site-packages (from -r requirements.txt (line 1)) (6.2.2)
+Requirement already satisfied: urllib3 in ./local/lib/python3.8/site-packages (from selenium->-r requirements.txt (line 3)) (1.26.3)
+Requirement already satisfied: MarkupSafe>=0.9.2 in ./local/lib/python3.8/site-packages (from Mako->pytest_bdd->-r requirements.txt (line 2)) (1.1.1)
+Requirement already satisfied: pyparsing>=2.0.2 in ./local/lib/python3.8/site-packages (from packaging->pytest->-r requirements.txt (line 1)) (2.4.7)
+Requirement already satisfied: parse in ./local/lib/python3.8/site-packages (from pytest_bdd->-r requirements.txt (line 2)) (1.19.0)
+Requirement already satisfied: six>=1.9.0 in ./local/lib/python3.8/site-packages (from pytest_bdd->-r requirements.txt (line 2)) (1.15.0)
+WARNING: You are using pip version 20.3.1; however, version 21.0.1 is available.
+You should consider upgrading via the '/Users/olgalonchuk/.jenkins/workspace/addressbook/local/bin/python -m pip install --upgrade pip' command.
++ python ....
+/Users/olgalonchuk/.jenkins/workspace/addressbook/local/bin/python: can't open file '....': [Errno 2] No such file or directory
+Build step 'Выполнить команду shell' marked build as failure
+Finished: FAILURE
