@@ -9,8 +9,7 @@ class DbFixture:
         self.name = name
         self.user = user
         self.password = password
-        self.connection = pymysql.connect(host=host, database=name, user=user, password=password)
-        self.connection.autocommit = True
+        self.connection = pymysql.connect(host=host, database=name, user=user, password=password, autocommit = True)
 
     def get_group_list(self):
         list = []
@@ -31,7 +30,8 @@ class DbFixture:
         list = []
         cursor = self.connection.cursor()
         try:
-            cursor.execute("select id, firstname, lastname, address, home, mobile, work, email, email2, email3, phone2 from addressbook where deprecated='0000-00-00 00:00:00'")
+            cursor.execute("select id, firstname, lastname, address, home, mobile, work, email, email2, email3, phone2 "
+                           "from addressbook where deprecated='0000-00-00 00:00:00'")
             for row in cursor:
                 (id, firstname, lastname, address, home, mobile, work, email, email2, email3, phone2) = row
                 list.append(Contact(id=str(id), firstname=firstname, lastname=lastname, address=address, homephone=home,
@@ -44,20 +44,25 @@ class DbFixture:
         list = []
         cursor = self.connection.cursor()
         try:
-            cursor.execute("select y.id, y.firstname, y.lastname, y.address, y.home, y.mobile, y.work, y.email, y.email2, y.email3, y.phone2 from addressbook y left join address_in_groups cg on cg.id=y.id where cg.id is null")
+            cursor.execute("select id, firstname, lastname, address, home, mobile, work, email, email2, email3, "
+                           "phone2 from addressbook where deprecated = '0000-00-00 00:00:00'"
+                           "and id not in (select id from address_in_groups)")
             for row in cursor:
                 (id, firstname, lastname, address, home, mobile, work, email, email2, email3, phone2) = row
                 list.append(Contact(id=str(id), firstname=firstname, lastname=lastname, address=address, homephone=home,
-                            mobilephone=mobile, workphone=work, email=email, email2=email2, email3=email3, secondaryphone=phone2))
+                                    mobilephone=mobile, workphone=work, email=email, email2=email2, email3=email3, secondaryphone=phone2))
         finally:
             cursor.close()
         return list
+
 
     def get_contacts_in_group(self):
         list = []
         cursor = self.connection.cursor()
         try:
-            cursor.execute("select distinct y.id, y.firstname, y.lastname, y.address, y.home, y.mobile, y.work, y.email, y.email2, y.email3, y.phone2 from addressbook y inner join address_in_groups cg on cg.id=y.id")
+            cursor.execute("select distinct (id), firstname, lastname, address, home, mobile, work, email, email2, email3, "
+                           "phone2 from addressbook where deprecated = '0000-00-00 00:00:00'"
+                           "and id in (select id from address_in_groups)")
             for row in cursor:
                 (id, firstname, lastname, address, home, mobile, work, email, email2, email3, phone2) = row
                 list.append(Contact(id=str(id), firstname=firstname, lastname=lastname, address=address, homephone=home,
@@ -67,12 +72,12 @@ class DbFixture:
             cursor.close()
         return list
 
-    def get_groups_wth_contacts(self):
+    def get_groups_with_contacts(self):
         list = []
         cursor = self.connection.cursor()
         try:
-            cursor.execute(
-                "select g.group_id, g.group_name, g.group_header, g.group_footer from group_list g join address_in_groups ga on ga.group.id=g.group_id join addressbook ab on ab.id=ga.id")
+            cursor.execute("select group_id, group_name, group_header, group_footer from group_list "
+                           "where group_id in (select group_id from address_in_groups)")
             for row in cursor:
                 (id, name, header, footer) = row
                 list.append(Group(id=str(id), name=name, header=header, footer=footer))
@@ -80,3 +85,19 @@ class DbFixture:
             cursor.close()
         return list
 
+    def get_contacts_in_group_by_group_id(self, group_id):
+        list = []
+        cursor = self.connection.cursor()
+        sql = """select id, firstname, lastname, address, home, mobile, work, email, email2, email3, phone2 
+                 from addressbook where deprecated = '0000-00-00 00:00:00' 
+                 and id in (select id from address_in_groups where group_id=%s)"""
+        try:
+            cursor.execute(sql, (int(group_id),))
+            for row in cursor:
+                (id, firstname, lastname, address, home, mobile, work, email, email2, email3, phone2) = row
+                list.append(Contact(id=str(id), firstname=firstname, lastname=lastname, address=address, homephone=home,
+                                    mobilephone=mobile, workphone=work, email=email, email2=email2, email3=email3,
+                                    secondaryphone=phone2))
+        finally:
+            cursor.close()
+        return list

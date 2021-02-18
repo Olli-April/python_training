@@ -14,8 +14,7 @@ class ORMFixture:
         name = Optional(str, column='group_name')
         header = Optional(str, column='group_header')
         footer = Optional(str, column='group_footer')
-        contacts = Set(lambda: ORMFixture.ORMContact, table="address_in_groups", column="id", reverse="groups",
-                       lazy=True)
+        contacts = Set(lambda: ORMFixture.ORMContact, table="address_in_groups", column="id", reverse="groups", lazy=True)
 
     class ORMContact(db.Entity):
         _table_ = 'addressbook'
@@ -44,17 +43,38 @@ class ORMFixture:
             return Contact(id=str(contact.id), firstname=contact.firstname, lastname=contact.lastname)
         return list(map(convert, contacts))
 
+
     @db_session
     def get_contact_list(self):
         return self.convert_contacts_to_model(select(c for c in ORMFixture.ORMContact if c.deprecated is None))
+
+
+    @db_session
+    def get_contact_list_not_group(self):
+        return list(self.convert_contacts_to_model(select(c for c in ORMFixture.ORMContact if len(c.groups) == 0)))
+
+
+    @db_session
+    def get_group_list_not_contacts(self):
+        return list(self.convert_groups_to_model(select(g for g in ORMFixture.ORMGroup if len(g.contacts) == 0)))
+
 
     @db_session
     def get_contacts_in_group(self, group):
         orm_group = list(select(g for g in ORMFixture.ORMGroup if g.id == group.id))[0]
         return self.convert_contacts_to_model(orm_group.contacts)
 
+
     @db_session
     def get_contacts_not_in_group(self, group):
         orm_group = list(select(g for g in ORMFixture.ORMGroup if g.id == group.id))[0]
         return self.convert_contacts_to_model(
             select(c for c in ORMFixture.ORMContact if c.deprecated is None and orm_group not in c.groups))
+
+
+    @db_session
+    def all_contacts_in_all_groups(self, list_groups):
+        for i in list_groups:
+            if len(self.get_contacts_not_in_group(i)) > 0:
+                return False
+        return True
