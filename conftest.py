@@ -5,7 +5,7 @@ import importlib
 import jsonpickle
 import json
 from fixture.db import DbFixture
-#from fixture.orm import ORMFixture
+from fixture.orm import ORMFixture
 
 
 fixture = None
@@ -29,6 +29,7 @@ def app(request):
     fixture.session.ensure_login(username=web_config["username"], password=web_config["password"])
     return fixture
 
+
 @pytest.fixture(scope='session', autouse=True)
 def db(request):
     db_config = load_config(request.config.getoption("--target"))["db"]
@@ -39,7 +40,7 @@ def db(request):
     request.addfinalizer(fin)
     return dbfixture
 
-@pytest.fixture(scope='session', autouse=True)
+@pytest.fixture(scope='session')# autouse=True)
 def stop(request):
     def fin():
         fixture.session.ensure_logout()
@@ -47,12 +48,12 @@ def stop(request):
     request.addfinalizer(fin)
     return fixture
 
-#@pytest.fixture(scope="session")
-#def orm(request):
-#    orm_config = load_config(request.getoption("--target"))["orm"]
-#    orm_fixture = ORMFixture(host=orm_config["host"], name=orm_config["name"],
-                             #user=orm_config["user"], password=orm_config["password"])
-#    return orm_fixture
+@pytest.fixture(scope="session")
+def orm(request):
+    db_config = load_config(request.getoption("--target"))["db"]
+    orm_fixture = ORMFixture(host=db_config["host"], name=db_config["name"],
+                             user=db_config["user"], password=db_config["password"])
+    return orm_fixture
 
 
 @pytest.fixture
@@ -64,6 +65,7 @@ def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="firefox")
     parser.addoption("--target", action="store", default="target.json")
     parser.addoption("--check_ui", action="store_true")
+
 
 def pytest_generate_tests(metafunc):
     for fixture in metafunc.fixturenames:
