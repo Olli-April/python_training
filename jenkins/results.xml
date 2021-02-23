@@ -1,0 +1,90 @@
+Started by user admin
+Running as SYSTEM
+Building in workspace /Users/olgalonchuk/.jenkins/workspace/addressbook
+The recommended git tool is: NONE
+No credentials specified
+ > /usr/local/bin/git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > /usr/local/bin/git config remote.origin.url https://github.com/Olli-April/python_training # timeout=10
+Fetching upstream changes from https://github.com/Olli-April/python_training
+ > /usr/local/bin/git --version # timeout=10
+ > git --version # 'git version 2.23.0'
+ > /usr/local/bin/git fetch --tags --force --progress -- https://github.com/Olli-April/python_training +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/local/bin/git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 5b2e4fbb0831d15d314d47ea9659cb4e63dd4a39 (refs/remotes/origin/main)
+ > /usr/local/bin/git config core.sparsecheckout # timeout=10
+ > /usr/local/bin/git checkout -f 5b2e4fbb0831d15d314d47ea9659cb4e63dd4a39 # timeout=10
+Commit message: "results"
+ > /usr/local/bin/git rev-list --no-walk 5b2e4fbb0831d15d314d47ea9659cb4e63dd4a39 # timeout=10
+[addressbook] $ /bin/sh -xe /var/folders/ts/gtbsl5s90kl7gktvwr0ygkh80000gn/T/jenkins7121181670213726843.sh
++ source /Users/olgalonchuk/PycharmProjects/python_mantis/env/bin/activate
+++ '[' /Users/olgalonchuk/PycharmProjects/python_mantis/env/bin/activate = /var/folders/ts/gtbsl5s90kl7gktvwr0ygkh80000gn/T/jenkins7121181670213726843.sh ']'
+++ deactivate nondestructive
+++ unset -f pydoc
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ '[' -n /bin/sh ']'
+++ hash -r
+++ '[' -z '' ']'
+++ unset VIRTUAL_ENV
+++ '[' '!' nondestructive = nondestructive ']'
+++ VIRTUAL_ENV=/Users/olgalonchuk/PycharmProjects/python_mantis/env
+++ '[' darwin20 = cygwin ']'
+++ '[' darwin20 = msys ']'
+++ export VIRTUAL_ENV
+++ _OLD_VIRTUAL_PATH=/Library/Frameworks/Python.framework/Versions/3.8/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+++ PATH=/Users/olgalonchuk/PycharmProjects/python_mantis/env/bin:/Library/Frameworks/Python.framework/Versions/3.8/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+++ export PATH
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ '[' x '!=' x ']'
++++ basename /Users/olgalonchuk/PycharmProjects/python_mantis/env
+++ PS1='(env) '
+++ export PS1
+++ alias pydoc
+++ true
+++ '[' -n /bin/sh ']'
+++ hash -r
++ which python
+/Users/olgalonchuk/PycharmProjects/python_mantis/env/bin/python
++ python --version
+Python 3.8.3
++ pip install -r requirements.txt
+Requirement already satisfied: pytest in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from -r requirements.txt (line 1)) (6.2.2)
+Requirement already satisfied: pytest_bdd in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from -r requirements.txt (line 2)) (4.0.2)
+Requirement already satisfied: selenium in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from -r requirements.txt (line 3)) (3.141.0)
+Requirement already satisfied: jsonpickle in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from -r requirements.txt (line 4)) (2.0.0)
+Requirement already satisfied: pony in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from -r requirements.txt (line 5)) (0.7.14)
+Requirement already satisfied: pymysql in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from -r requirements.txt (line 6)) (1.0.2)
+Requirement already satisfied: mysql-connector-python-rf in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from -r requirements.txt (line 7)) (2.2.2)
+Requirement already satisfied: packaging in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from pytest->-r requirements.txt (line 1)) (20.9)
+Requirement already satisfied: pluggy<1.0.0a1,>=0.12 in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from pytest->-r requirements.txt (line 1)) (0.13.1)
+Requirement already satisfied: py>=1.8.2 in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from pytest->-r requirements.txt (line 1)) (1.10.0)
+Requirement already satisfied: attrs>=19.2.0 in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from pytest->-r requirements.txt (line 1)) (20.3.0)
+Requirement already satisfied: iniconfig in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from pytest->-r requirements.txt (line 1)) (1.1.1)
+Requirement already satisfied: toml in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from pytest->-r requirements.txt (line 1)) (0.10.2)
+Requirement already satisfied: parse-type in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from pytest_bdd->-r requirements.txt (line 2)) (0.5.2)
+Requirement already satisfied: six>=1.9.0 in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from pytest_bdd->-r requirements.txt (line 2)) (1.15.0)
+Requirement already satisfied: parse in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from pytest_bdd->-r requirements.txt (line 2)) (1.19.0)
+Requirement already satisfied: glob2 in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from pytest_bdd->-r requirements.txt (line 2)) (0.7)
+Requirement already satisfied: Mako in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from pytest_bdd->-r requirements.txt (line 2)) (1.1.4)
+Requirement already satisfied: urllib3 in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from selenium->-r requirements.txt (line 3)) (1.26.3)
+Requirement already satisfied: MarkupSafe>=0.9.2 in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from Mako->pytest_bdd->-r requirements.txt (line 2)) (1.1.1)
+Requirement already satisfied: pyparsing>=2.0.2 in /Users/olgalonchuk/PycharmProjects/python_mantis/env/lib/python3.8/site-packages (from packaging->pytest->-r requirements.txt (line 1)) (2.4.7)
+WARNING: You are using pip version 20.3.4; however, version 21.0.1 is available.
+You should consider upgrading via the '/Users/olgalonchuk/PycharmProjects/python_mantis/env/bin/python -m pip install --upgrade pip' command.
++ pytest --junitxml=results.xml test/test_add_group.py
+============================= test session starts ==============================
+platform darwin -- Python 3.8.3, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
+rootdir: /Users/olgalonchuk/.jenkins/workspace/addressbook
+plugins: bdd-4.0.2
+collected 6 items
+
+test/test_add_group.py ......                                            [100%]
+
+- generated xml file: /Users/olgalonchuk/.jenkins/workspace/addressbook/results.xml -
+============================== 6 passed in 59.68s ==============================
+Recording test results
+[Checks API] No suitable checks publisher found.
+Finished: SUCCESS
