@@ -1,3 +1,4 @@
+pytest==2.9.0
 pytest
 pytest_bdd
 selenium
@@ -5,4 +6,4 @@ jsonpickle
 pony
 pymysql
 mysql-connector-python-rf
-
+allure-pytest

@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed Feb 24 15:55:33 EST 2021","Wed Feb 24 15:55:40 EST 2021","6318","test","test_add_group","","","","test_add_group[None:name[KJ||$4R+:headerB RYY4:footer `pu`i3:n)~?r8 e: ]",""
+"passed","Wed Feb 24 15:55:10 EST 2021","Wed Feb 24 15:55:17 EST 2021","6379","test","test_add_group","","","","test_add_group[None:name8TU`[:headerw""e:(Wi0., ,I:footer>zx5tb> dc}l]",""
+"passed","Wed Feb 24 15:55:03 EST 2021","Wed Feb 24 15:55:09 EST 2021","6390","test","test_add_group","","","","test_add_group[None:name)b-2v  :header :footerd0kTk<z*zc:?z) -i]",""
+"passed","Wed Feb 24 15:55:26 EST 2021","Wed Feb 24 15:55:32 EST 2021","6347","test","test_add_group","","","","test_add_group[None:nameJE:header1(#S\jYO:footer,XToB B' ^'-`QEQ<7]",""
+"passed","Wed Feb 24 15:55:18 EST 2021","Wed Feb 24 15:55:25 EST 2021","6345","test","test_add_group","","","","test_add_group[None:namexw;7]xJ0:header.Yx)B:footer6;3* !mZ JX{ ]",""
+"passed","Wed Feb 24 15:54:55 EST 2021","Wed Feb 24 15:55:01 EST 2021","6646","test","test_add_group","test_add_group[None","","","test_add_group[None:::]",""
